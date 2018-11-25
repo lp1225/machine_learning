@@ -42,7 +42,7 @@ X_norm = np.hstack((np.ones((m, 1)), X_norm))
 theta = np.zeros((X_norm.shape[1], 1))
 
 
-def coss_function(X, y, theta):
+def cost_function(X, y, theta):
     """
     代价函数
     :param X:
@@ -58,7 +58,7 @@ def coss_function(X, y, theta):
     return J[0]
 
 
-coss_function(X_norm, y, theta)
+cost_function(X_norm, y, theta)
 
 alpha = 0.01
 iterations = 400
@@ -80,7 +80,7 @@ def gradient_descent(X, y, theta, alpha, iterations):
         h = np.dot(X, theta)
         k = np.dot(np.transpose(X), (h-y))
         theta = theta - alpha * k / m
-        J_history[i] = coss_function(X, y, theta)
+        J_history[i] = cost_function(X, y, theta)
 
     return theta, J_history
 
